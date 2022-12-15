@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/12 18:24:02 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/15 16:00:20 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include<unistd.h>
 # include<limits.h>
 # include<stdlib.h>
+# include<stdio.h> 
 
 typedef struct s_list
 {
@@ -48,4 +49,8 @@ char    **error_malloc(char **tab);
 int    word_count(const char *str, char c);
 char    *get_word(const char *s1, int *index, char c);
 char    **ft_split(char const *s, char c);
+
+int checkint (char **tab);
+long int	ft_atoi(char *str);
+int check_max_min (char **tab);
 #endif

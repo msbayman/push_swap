@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/12 18:36:05 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/15 16:51:35 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,25 +65,30 @@
 // }
 
 
-int main(int ac , char **av) 
+int main(int ac , char **av)
 {
 	char	**tab;
-	char	*words;
 	int		i;
-	int		j;
+	t_list	*head;
 	
 	if (ac==1)
 		write(1,"Error",5);
 	else 
 	{
-		j = 0;
 		i = 0;	
-		tab = ft_split(ft_strjoin(ac-1, av + 1, ' '),' ');
-		if()
-		
+		head = NULL;
+		tab = ft_split(ft_strjoin(ac-1, av + 1, " "),' ');
+
+		if (!checkint(tab) || !check_max_min(tab))
+			write(1, "error\n", 6);
+		while(tab[i])
+			ft_lstadd_back(&head, ft_lstnew(ft_atoi(tab[i++])));
 	}
 	
 	
+
+
+//*************************************************************	
 // t_list *h = NULL;
 // t_list *lh = NULL;
 // t_list *lhh = NULL;
