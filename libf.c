@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:09 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/12 18:24:18 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/15 18:09:49 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ t_list    *ft_lstnew(int k)
     t_list    *p;
     
         p = malloc(sizeof(t_list));
+		if(!p)
+		puts("rani 5adama");
         p -> data = k;
+		printf("data is %d \n",p->data);
         p -> next = p;
         p -> prev = p;
 		p -> sin = 0;
@@ -87,33 +90,78 @@ int	ft_strlen(char *str)
 	return (n);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+char    *ft_strcat(char *dest, char *src)
 {
-	char	*tab;
-	int		n;
-	int		a;
-	int		b;
-	int		count;
+    int    i;
+    int    j;
 
-	b = 0;
-	n = 0;
-	a = 0;
-	count = 1;
-	while (a < size)
-		count += ft_strlen(strs[a++]) + ft_strlen(sep);
-	tab = malloc(sizeof(char *) * count);
-	a = -1;
-	while (++a < size)
-	{
-		while (strs[a][b])
-			tab[n++] = strs[a][b++];
-		b = 0;
-		while (sep[b] && a < size - 1)
-			tab[n++] = sep[b++];
-		b = 0;
-	}
-	tab[n] = '\0';
-	return (tab);
+    i = 0;
+    j = 0;
+    if (!dest || !src)
+        return (dest);
+    while (dest[i])
+        i++;
+    while (src[j])
+    {
+        dest[i + j] = src[j];
+        j++;
+    }
+    dest[i + j] = '\0';
+    return (dest);
+}
+
+char    *get_str(int size, char **strs, char *sep)
+{
+    char    *str;
+    int        i;
+    int        sep_l;
+    int        str_l;
+
+    str_l = 0;
+    i = 0;
+    if (size == 0)
+    {
+        str = malloc(sizeof(char));
+        *str = 0;
+        return (str);
+    }
+    while (i < size)
+    {
+        str_l += ft_strlen(strs[i]);
+        i++;
+    }
+    sep_l = ft_strlen(sep) * (size - 1);
+    str = malloc(sizeof(char) * (str_l + sep_l));
+    return (str);
+}
+
+char    *ft_strjoin(int size, char **strs, char *sep)
+{
+    int        j;
+    int        k;
+    int        i;
+    char    *str;
+
+    str = get_str(size, strs, sep);
+    i = -1;
+    k = 0;
+    while (++i < size)
+    {
+        j = 0;
+        while (strs[i][j])
+        {
+            str[k++] = strs[i][j];
+            j++;
+        }
+        j = 0;
+        while (sep[j] && i != size - 1)
+        {
+            str[k++] = sep[j];
+            j++;
+        }
+    }
+    str[k] = '\0';
+    return (str);
 }
 
 char    **error_malloc(char **tab)
