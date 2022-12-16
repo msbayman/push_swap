@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:09 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/15 18:09:49 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/16 15:20:23 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_list    *ft_lstnew(int k)
 		if(!p)
 		puts("rani 5adama");
         p -> data = k;
-		printf("data is %d \n",p->data);
         p -> next = p;
         p -> prev = p;
 		p -> sin = 0;

@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 10:53:32 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/15 18:50:23 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/16 15:51:20 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,31 @@ int ft_atoi(char *str)
 	return(result * sign);	
 }
 
+long ft_atoilong(char *str)
+{
+	int			i;
+	int			sign;
+	long long	result;
+
+	i = 0;
+	sign =1;
+	result = 0;
+	while((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if(str[i] == '-' || str[i] == '+')
+	{
+		if(str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while(str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - 48;
+		i++;
+	}
+	return(result * sign);	
+}
+
 int check_max_min (char	**tab)
 {
 	int	i;
@@ -68,10 +93,31 @@ int check_max_min (char	**tab)
 	i = 0;
 	while (tab[i])
 	{
-		if ( ft_atoi(tab[i]) <= 2147483647  && ft_atoi(tab[i]) >= -2147483648 )
-			i++;
-		else
-			return(0);
+		if ( ft_atoilong(tab[i]) >= 2147483647  || ft_atoilong(tab[i]) <= -2147483648 )
+		return (0);
+		i++;
 	}
 	return (1);
+}
+
+int check_duplicates(char **tab)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (tab[i])
+	{
+		j = i+1;
+		while(tab[j])
+		{
+			if (ft_atoi(tab[i])==ft_atoi(tab[j]))
+			return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+	
+
 }

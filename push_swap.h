@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/15 18:54:32 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/16 15:50:41 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,6 @@ char    **ft_split(char const *s, char c);
 int checkint (char **tab);
 int ft_atoi(char *str);
 int check_max_min (char **tab);
+int check_duplicates(char **tab);
+long ft_atoilong(char *str);
 #endif

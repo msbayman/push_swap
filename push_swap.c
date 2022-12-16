@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/15 19:34:10 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/16 18:00:20 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int main(int ac , char **av)
 		// 	printf("%s\n", (tab[i]));
 		// 	i++;
 		// }
-		if (!checkint(tab) || check_max_min(tab))
-			write(1, "error\n", 6);
+		if (!checkint(tab) || !check_max_min(tab) || !check_duplicates(tab))
+			write(1, "Error\n", 6);
 	
 	
 		while(tab[i])
