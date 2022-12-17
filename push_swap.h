@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/16 15:50:41 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/17 18:09:49 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include<limits.h>
 # include<stdlib.h>
 # include<stdio.h> 
+# include<string.h>
 
 typedef struct s_list
 {
@@ -54,4 +55,5 @@ int ft_atoi(char *str);
 int check_max_min (char **tab);
 int check_duplicates(char **tab);
 long ft_atoilong(char *str);
+int check_nul (char **tab, int ac);
 #endif

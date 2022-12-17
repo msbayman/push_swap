@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 10:53:32 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/16 15:51:20 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/17 18:10:47 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,18 @@ int check_duplicates(char **tab)
 		i++;
 	}
 	return (1);
-	
+}
 
+int check_nul (char **tab ,int ac)
+{
+	int i;
+
+	i = 0;
+	while(i < ac-1)
+	{
+		if(tab[i] == NULL)
+		return 0;
+		i++;
+	}
+	return 1;
 }
