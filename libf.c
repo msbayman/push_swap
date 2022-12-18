@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:09 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/16 15:20:23 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/18 14:59:22 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ t_list    *ft_lstnew(int k)
     
         p = malloc(sizeof(t_list));
 		if(!p)
-		puts("rani 5adama");
-        p -> data = k;
-        p -> next = p;
-        p -> prev = p;
-		p -> sin = 0;
+			return (NULL);
+        p->data = k;
+        p->next = p;
+        p->prev = p;
+		p->sin = 1;
+		p->push = 0;
     return (p);
 }
 
