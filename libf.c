@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:09 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/18 14:59:22 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/19 15:08:00 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,37 +48,57 @@ t_list    *ft_lstnew(int k)
 
 void    ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list    *p;
-    t_list    *temp;
+    // t_list    *p;
+    // t_list    *temp;
 
     
-    if (lst)
+    // if (lst)
+    // {
+    //     if (!*lst)
+    //         *lst = new;
+    //     else
+    //     {
+    //         p = ft_lstlast(*lst);
+    //         p -> next = new;
+    //         new->next = *lst;
+    //         new -> prev = p;
+    //         (*lst) -> prev = new;
+    //     }
+    // }    
+	t_list    *nextlst;
+    t_list    *head;
+
+    if (!new)
+        return ;
+    if (!*lst)
     {
-        if (!*lst)
-            *lst = new;
-        else
-        {
-            p = ft_lstlast(*lst);
-            p -> next = new;
-            new->next = *lst;
-            new -> prev = p;
-            (*lst) -> prev = new;
-        }
-    }    
+        *lst = new;
+        return ;
+    }
+    head = *lst;
+    nextlst = *lst;
+    while (nextlst->next != head)
+        nextlst = nextlst->next;
+    nextlst->next = new;
+    new->next = head;
+    new->prev = nextlst;
+    head->prev = new;
 }
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {	
-	if (lst)
-	{
-		if (!*lst)
-			*lst = new;
-		else
-		{
-			new -> next = *lst;
-			*lst = new;
-		}
-	}
+	  if (!new)
+        return ;
+    new->next = new;
+    new->prev = new;
+    if (*lst)
+    {
+        new->next = *lst;
+        new->prev = (*lst)->prev;
+        (*lst)->prev->next = new;
+        (*lst)->prev = new;
+    }
+    *lst = new;
 }
 int	ft_strlen(char *str)
 {

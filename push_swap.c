@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/19 12:45:19 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/19 15:08:42 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ int main(int ac , char **av)
 {
 	char	**tab;
 	int		i;
-	t_list	*head;
-	t_list *h;
+	t_list	*heada;
+	t_list	*headb;
+	t_list *temp;
 	
 	if (ac==1)
 		return write(1,"Error",5);
 	else 
 	{
 		i = 0;	
-		head = NULL;
+		heada = NULL;
 		printf("==============\n");
 		tab = ft_split(ft_strjoin(ac-1, av + 1, " "),' ');
 
@@ -39,22 +40,28 @@ int main(int ac , char **av)
 	
 	
 		while(tab[i])
-			ft_lstadd_back(&head,ft_lstnew(ft_atoi(tab[i++])));
+			ft_lstadd_back(&heada,ft_lstnew(ft_atoi(tab[i++])));
 
 		i = 0;
 		printf("list is :\n");
 		while(tab[i])
 		{
-			printf("%d\n",head->data);
-			head = head->next;
+			printf("%d\n",heada->data);
+			heada = heada->next;
 			i++;
 		}
 	}
 	printf("==============\n");
-	// the_best_head(&head);
-	the_best_head (&head);
-	find_max (&head);
-	zero_one (&head);
-	printf("head = %d", head->data);
-	
+	the_best_head (&heada);
+	find_max (&heada);
+	zero_one (&heada);
+	push_zero_to_b(&heada ,&headb);
+	temp = headb;
+	while (1)
+	{
+		printf("***%d\n",temp->data);
+		temp = temp->next;
+		if (temp == headb)
+			break;
+	}
 }
