@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/18 14:38:51 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/19 12:45:19 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,10 @@ int main(int ac , char **av)
 		}
 	}
 	printf("==============\n");
-	the_best_head(&head);
+	// the_best_head(&head);
+	the_best_head (&head);
+	find_max (&head);
+	zero_one (&head);
+	printf("head = %d", head->data);
+	
 }

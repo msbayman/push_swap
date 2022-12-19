@@ -6,45 +6,92 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/18 18:46:42 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/19 12:47:30 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 void the_best_head (t_list **head)
 {
-	t_list *temp;
-	t_list *i;
-	t_list *j;
+    t_list *temp;
+    t_list *i;
+    t_list *j;
 
-	temp = *head;
+    temp = *head;
+    while (1)
+    {
+        i = temp;
+        j = temp;
+        while (1)
+        {
+            if (i->data < j->data)
+            {
+                (temp->sin)++;
+                i = j;
+            }
+            j=j->next;
+            if(j == temp)
+              break;
+        }
+        temp = temp->next;
+        if(temp == *head)
+        break ;
+    }
+    temp = *head;
+    while(1)
+    {
+        printf("%d\n",temp->sin);
+        temp = temp ->next;
+        if(temp == *head)
+        break;
+    }
+}
+
+void find_max (t_list **head)
+{
+	t_list *temp;
+	t_list *h;
+	int max;
 	
-	while (1)
-	{
-		i = temp;
-		j = i;
-		while (j->next != temp)
+	temp = *head;
+	max = temp->sin;
+	 while (1)
+    {
+		if (max < temp->sin)
 		{
-			if (i->data < j->data)
-			{
-				(i->sin)++;
-				i = j;
-				j = j->next;
-			}
-			else
-			j=j->next;
+			max = temp->sin;
+			h = temp;	
 		}
 		temp = temp->next;
-		if(temp == *head)
-		break ;
-	}
-	temp = *head;
-	while(1)
-	{
-		printf("%d\n",temp->sin);
-		temp = temp ->next;
-		if(temp == *head)
-		break;
-	}
+       
+        if(temp == *head)
+        break ;
+    }
+	*head = h;
+}
 
+void zero_one (t_list **head)
+{
+	t_list	*i;
+	t_list	*temp;
+	
+	i = *head;
+	temp = *head;
+	i->push = 1;
+	 while (1)
+        {
+            if (i->data > i->next->data)
+                i->push = 1;
+            i=i->next;
+            if(i == *head)
+              break;
+        }
+		
+		 while(1)
+    {
+        printf("%d - %d\n",temp->data , temp->push);
+        temp = temp ->next;
+        if(temp == *head)
+        break;
+    }
 }

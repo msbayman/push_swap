@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/18 14:38:33 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/19 12:31:12 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,6 @@ int check_duplicates(char **tab);
 long ft_atoilong(char *str);
 int check_nul (char **tab, int ac);
 void the_best_head (t_list **head);
+void find_max (t_list **head);
+void zero_one (t_list **head);
 #endif
