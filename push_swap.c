@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/19 15:08:42 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/20 11:44:22 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(int ac , char **av)
 	t_list	*headb;
 	t_list *temp;
 	
+	headb =NULL; 
 	if (ac==1)
 		return write(1,"Error",5);
 	else 
@@ -53,15 +54,32 @@ int main(int ac , char **av)
 	}
 	printf("==============\n");
 	the_best_head (&heada);
+	printf("==============\n");
 	find_max (&heada);
 	zero_one (&heada);
+	printf("==============\n");
 	push_zero_to_b(&heada ,&headb);
-	temp = headb;
+	temp = heada;
+	printf("********************A\n");
 	while (1)
 	{
-		printf("***%d\n",temp->data);
+		printf("%d\n",temp->data);
+		temp = temp->next;
+		if (temp == heada)
+			break;
+	}
+	
+	temp = headb;
+	printf("********************B\n");
+	if (headb != NULL)
+	{
+	while (1)
+	{
+		printf("%d\n",temp->data);
 		temp = temp->next;
 		if (temp == headb)
 			break;
 	}
+	}
+	
 }
