@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/20 12:42:58 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/20 15:12:22 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,20 @@ void push_zero_to_b(t_list **heada ,t_list **headb)
 		if (temp == *heada)
 			break;
 	}
+}
+void indexing(t_list **head)
+{
+	t_list *temp;
+	int i;
+
+	i=0;
+	temp = *head;
+	while (1)
+	{
+		temp->push=i++;
+		temp=temp->next;
+		if (temp == *head)
+			break;
+	}
+	
 }
