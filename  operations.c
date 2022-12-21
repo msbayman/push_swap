@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:26:49 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/19 15:04:34 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:57:20 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,22 @@ void pa (t_list **a, t_list **b)
     del = *b; 
     temp = (*b) -> data;
     ft_lstadd_front(a,ft_lstnew(temp));
-    (*b)->prev->next = (*b)->next;
-    (*b)->next->prev =(*b)->prev;
-    (*b)=(*b)->next;
+	if((*b)->next == *b)
+	{
+		(*b)=NULL;
+	}
+	else
+	{
+		(*b)->prev->next = (*b)->next;
+		(*b)->next->prev =(*b)->prev;
+		(*b)=(*b)->next;
+	}
+
+	// if((*b)->next == *b)
+	// {
+	// 	(*b)->next=NULL;
+	// 	(*b)->prev=NULL;
+	// }
     free(del);
 }
 void pb (t_list **a, t_list **b)
@@ -77,6 +90,11 @@ void pb (t_list **a, t_list **b)
     (*a)->prev->next = (*a)->next;
     (*a)->next->prev =(*a)->prev;
     (*a)=(*a)->next;
+	if((*a)->next == *a)
+	{
+		(*a)->next=NULL;
+		(*a)->prev=NULL;
+	}
     free(del);
 }
 void ra (t_list **lst)

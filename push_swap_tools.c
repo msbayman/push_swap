@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/20 15:12:22 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:44:14 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void push_zero_to_b(t_list **heada ,t_list **headb)
 			break;
 	}
 }
+
 void indexing(t_list **head)
 {
 	t_list *temp;
@@ -135,4 +136,53 @@ void indexing(t_list **head)
 			break;
 	}
 	
+}
+
+void siri_l_a(t_list **heada, t_list **headb)
+{
+	t_list *tempb;
+	t_list *tempa;
+
+	tempb = *headb;
+	while (1)//b
+	{
+	tempa = *heada;
+			if (tempb->data > tempa->data && tempb->data < tempa->prev->data)
+			{
+				tempb->sin = 1;
+			}
+			else
+				tempb->sin = 0;
+			tempa=tempa->next;
+		tempb=tempb->next;
+		if (tempb == *headb)
+			break;
+	}
+	
+}
+
+void best_move(t_list **headb, t_list **heada)
+{
+	// printf("**********************best\n");
+	// int min;
+	// t_list *best;
+	// t_list *temp;
+	// best = NULL;
+	// temp = *headb;
+	// min = (*headb) -> data;
+	// while (1)//b
+	// {
+	// 	if(temp->data < min)
+	// 	{
+	// 		min = temp->data;
+	// 		best = temp;
+	// 	}
+	// 	temp = temp->next;
+	// if (temp == *headb)
+	// 		break;
+	// }
+	// *headb = best;
+	// puts("x"); 
+	// if ((*headb)->data < (*heada)->data )
+	// pa(heada,headb);
 }

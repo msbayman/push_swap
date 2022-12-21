@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/20 11:44:22 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/21 18:03:38 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,48 @@ int main(int ac , char **av)
 			break;
 	}
 	}
+	// siri_l_a(&heada, &headb);
+	best_move(&headb , &heada);
+	temp = headb;
+	printf("********************B\n");
+	if (headb != NULL)
+	{
+	while (1)
+	{
+		
+		printf("%d - %d\n",temp->data,temp->sin);
+		temp = temp->next;
+		if (temp == headb)
+			break;
+	}
+	}
+	pa(&heada,&headb);
+	temp = heada;
+	printf("********************A\n");
+	while (1)
+	{
+		printf("%d\n",temp->data);
+		temp = temp->next;
+		if (temp == heada)
+			break;
+	}
+	printf("********************B\n");
+	
+		if(headb != NULL)
+		{
+		printf("%d\n",headb->data);
+		headb = headb->next;
+		printf("%d\n",headb->data);
+			
+		}
+		pb(&heada,&headb);
+		printf("********************B\n");
+	
+		if(headb != NULL)
+		{
+		printf("%d\n",headb->data);
+		headb = headb->next;
+			
+		}
 	
 }
