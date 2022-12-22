@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/21 13:24:05 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/22 10:53:37 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_list
 	struct s_list	*prev;
 	int				sin;
 	int				push;
+	int				bma;
+	int				bmb;
 	
 }	t_list;
 

@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/21 17:44:14 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/22 14:49:49 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,26 +163,47 @@ void siri_l_a(t_list **heada, t_list **headb)
 
 void best_move(t_list **headb, t_list **heada)
 {
-	// printf("**********************best\n");
-	// int min;
-	// t_list *best;
-	// t_list *temp;
-	// best = NULL;
-	// temp = *headb;
-	// min = (*headb) -> data;
-	// while (1)//b
-	// {
-	// 	if(temp->data < min)
-	// 	{
-	// 		min = temp->data;
-	// 		best = temp;
-	// 	}
-	// 	temp = temp->next;
-	// if (temp == *headb)
-	// 		break;
-	// }
-	// *headb = best;
-	// puts("x"); 
-	// if ((*headb)->data < (*heada)->data )
-	// pa(heada,headb);
+	
+	t_list *tempa;
+	t_list *tempb;
+	int		j;
+	int		i;
+	int		bmb;
+
+	bmb = 0;
+	tempb = *headb;
+	while (1)//b
+	{
+		i = 0;
+		j = -1;
+		tempa = *heada;
+		while (1)//a
+		{
+			if(tempb->data < tempa->data)
+				break ;
+			i++;	
+			tempa = tempa->next;
+			if(tempa == *heada)
+				break;
+		}
+		tempa = (*heada)->prev;
+		while (1)//a
+		{
+			if(tempb->data<tempa->data)
+				j--;
+			tempa = tempa->prev;
+			if(tempa == *heada)
+				break;
+		}
+		if(i<=(j*-1))
+			tempb ->bma = i;
+		else
+			tempb->bma = (j);
+		tempb->bmb = bmb;
+		printf("%d <------> %d\n",i,j);
+		bmb++;	
+		tempb = tempb->next;
+		if(tempb == *headb)
+			break;
+	}
 }

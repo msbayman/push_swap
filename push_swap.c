@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/21 18:03:38 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/22 11:48:43 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int main(int ac , char **av)
 			break;
 	}
 	}
-	pa(&heada,&headb);
+	// pa(&heada,&headb);
 	temp = heada;
 	printf("********************A\n");
 	while (1)
@@ -106,23 +106,42 @@ int main(int ac , char **av)
 		if (temp == heada)
 			break;
 	}
+	temp = headb;
 	printf("********************B\n");
+	if (headb != NULL)
+	{
+	while (1)
+	{
+		printf("%d\n",temp->data);
+		temp = temp->next;
+		if (temp == headb)
+			break;
+	}
+	}
+		// pb(&heada,&headb);
+		// printf("********************B\n");
 	
-		if(headb != NULL)
-		{
-		printf("%d\n",headb->data);
-		headb = headb->next;
-		printf("%d\n",headb->data);
+		// if(headb != NULL)
+		// {
+		// printf("%d\n",headb->data);
+		// headb = headb->next;
 			
-		}
-		pb(&heada,&headb);
-		printf("********************B\n");
+		// }
+	best_move(&headb, &heada);
 	
-		if(headb != NULL)
-		{
-		printf("%d\n",headb->data);
-		headb = headb->next;
-			
-		}
+	temp = headb;
+	printf("********************B\n");
+	printf("data | bmb | bma |\n");
+	if (headb != NULL)
+	{
+	while (1)
+	{
+		printf("%d | %d | %d |\n",temp->data , temp->bmb ,temp->bma);
+		temp = temp->next;
+		if (temp == headb)
+			break;
+	}
+	}
+	
 	
 }
