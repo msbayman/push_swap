@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/22 11:48:43 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/22 17:50:43 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int main(int ac , char **av)
 	}
 	}
 	// siri_l_a(&heada, &headb);
-	best_move(&headb , &heada);
+	// best_move(&headb , &heada);
 	temp = headb;
 	printf("********************B\n");
 	if (headb != NULL)

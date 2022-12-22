@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:09 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/19 15:08:00 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/22 17:56:40 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,4 +265,21 @@ char    **ft_split(char const *s, char c)
     }
     arr[i] = 0;
     return (arr);
+}
+
+int lst_size(t_list **head)
+{
+	t_list *temp;
+	int	i;
+
+	i = 0;
+	temp = *head;
+	while (1)
+	{
+		i++;
+		temp = temp->next;
+		if (temp == *head)
+			break;
+	}
+	return (i);
 }

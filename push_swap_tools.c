@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/22 14:49:49 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/22 18:06:19 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,8 +130,12 @@ void indexing(t_list **head)
 	temp = *head;
 	while (1)
 	{
-		temp->push=i++;
+		if(i>lst_size(head))
+			temp->push = i - lst_size(head);
+		else
+			temp->push = i;
 		temp=temp->next;
+		i++;
 		if (temp == *head)
 			break;
 	}
@@ -161,49 +165,136 @@ void siri_l_a(t_list **heada, t_list **headb)
 	
 }
 
+// void best_move(t_list **headb, t_list **heada)
+// {
+	
+// 	t_list *tempa;
+// 	t_list *tempb;
+// 	int		j;
+// 	int		i;
+// 	int		bmb;
+
+// 	bmb = 0;
+// 	tempb = *headb;
+// 	while (1)//b
+// 	{
+// 		i = 0;
+// 		j = -1;
+// 		tempa = *heada;
+// 		while (1)//a
+// 		{
+// 			if(tempb->data < tempa->data)
+// 				break ;
+// 			i++;	
+// 			tempa = tempa->next;
+// 			if(tempa == *heada)
+// 				break;
+// 		}
+// 		tempa = (*heada)->prev;
+// 		while (1)//a
+// 		{
+// 			if(tempb->data<tempa->data)
+// 				j--;
+// 			tempa = tempa->prev;
+// 			if(tempa == *heada)
+// 				break;
+// 		}
+// 		if(i<=(j*-1))
+// 			tempb ->bma = i;
+// 		else
+// 			tempb->bma = (j);
+// 		tempb->bmb = bmb;
+// 		bmb++;	
+// 		tempb = tempb->next;
+// 		if(tempb == *headb)
+// 			break;
+// 	}
+// }
+
+
+
+void find_best_move_for_element(t_list *tempb, t_list *heada, int *i, int *j)
+{
+	t_list *tempa;
+	
+	*i = 0;
+	*j = -1;
+	tempa = heada;
+	while (1)//a
+	{
+		if(tempb->data < tempa->data)
+			break ;
+		(*i)++;	
+		tempa = tempa->next;
+		if(tempa == heada)
+			break;
+	}
+	tempa = heada->prev;
+	while (1)//a
+	{
+		if(tempb->data<tempa->data)
+			(*j)--;
+		tempa = tempa->prev;
+		if(tempa == heada)
+			break;
+	}
+}
+
+
 void best_move(t_list **headb, t_list **heada)
 {
-	
-	t_list *tempa;
 	t_list *tempb;
-	int		j;
-	int		i;
 	int		bmb;
+	int		i;
+	int		j;
 
 	bmb = 0;
 	tempb = *headb;
 	while (1)//b
 	{
-		i = 0;
-		j = -1;
-		tempa = *heada;
-		while (1)//a
-		{
-			if(tempb->data < tempa->data)
-				break ;
-			i++;	
-			tempa = tempa->next;
-			if(tempa == *heada)
-				break;
-		}
-		tempa = (*heada)->prev;
-		while (1)//a
-		{
-			if(tempb->data<tempa->data)
-				j--;
-			tempa = tempa->prev;
-			if(tempa == *heada)
-				break;
-		}
+		find_best_move_for_element(tempb, *heada, &i, &j);
 		if(i<=(j*-1))
 			tempb ->bma = i;
 		else
 			tempb->bma = (j);
-		tempb->bmb = bmb;
-		printf("%d <------> %d\n",i,j);
+		if(bmb>lst_size(headb)/2)
+				tempb->bmb = bmb - lst_size(headb);
+		else	
+			tempb->bmb = bmb;
 		bmb++;	
 		tempb = tempb->next;
 		if(tempb == *headb)
 			break;
 	}
 }
+
+void best_sum(t_list **headb)
+ {
+	t_list *temp;
+	int	sum;
+	temp = *headb;
+	while (1)
+	{
+		if(temp->bmb < 0)
+			temp->sum = temp->bma + (temp->bmb * -1);
+		else
+			temp->sum = temp->bma + temp->bmb;
+		if(temp == *headb)
+			break;
+	}
+	sum = (*headb)->sum;
+	temp = *headb;
+	while (1)
+	{
+		if(sum <temp->sum)
+		{
+				
+		}
+		if(temp == *headb)
+			break;
+	}
+	
+	
+ }
+
+
