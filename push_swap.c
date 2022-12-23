@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/22 17:50:43 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/23 20:47:33 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int main(int ac , char **av)
 			break;
 	}
 	}
+	printf("********************\n");
 		// pb(&heada,&headb);
 		// printf("********************B\n");
 	
@@ -128,20 +129,45 @@ int main(int ac , char **av)
 			
 		// }
 	best_move(&headb, &heada);
-	
+	indexing (&headb);
+	final_push(&heada,&headb);
 	temp = headb;
+	// printf("********************B\n");
+	// printf("data | bmb | bma | index\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
+	// 	printf("%d | %d | %d |           %d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
+
 	printf("********************B\n");
-	printf("data | bmb | bma |\n");
 	if (headb != NULL)
 	{
 	while (1)
 	{
-		printf("%d | %d | %d |\n",temp->data , temp->bmb ,temp->bma);
+		printf("%d\n",temp->data);
 		temp = temp->next;
 		if (temp == headb)
 			break;
 	}
 	}
 	
+		temp = heada;
+	printf("********************a\n");
+	if (heada != NULL)
+	{
+	while (1)
+	{
+		printf("%d\n",temp->data);
+		temp = temp->next;
+		if (temp == heada)
+			break;
+	}
+	}
 	
 }

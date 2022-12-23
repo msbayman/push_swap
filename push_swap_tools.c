@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/22 18:06:19 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/23 20:44:31 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void indexing(t_list **head)
 	temp = *head;
 	while (1)
 	{
-		if(i>lst_size(head))
+		if(i>lst_size(head)/2)
 			temp->push = i - lst_size(head);
 		else
 			temp->push = i;
@@ -152,9 +152,7 @@ void siri_l_a(t_list **heada, t_list **headb)
 	{
 	tempa = *heada;
 			if (tempb->data > tempa->data && tempb->data < tempa->prev->data)
-			{
 				tempb->sin = 1;
-			}
 			else
 				tempb->sin = 0;
 			tempa=tempa->next;
@@ -267,18 +265,23 @@ void best_move(t_list **headb, t_list **heada)
 			break;
 	}
 }
+int be_positive(int k)
+{
+	if(k<0)
+		return (-k);
+	return (k);
+}
 
-void best_sum(t_list **headb)
+int best_sum(t_list **headb ,int *index)
  {
 	t_list *temp;
 	int	sum;
+	
 	temp = *headb;
 	while (1)
 	{
-		if(temp->bmb < 0)
-			temp->sum = temp->bma + (temp->bmb * -1);
-		else
-			temp->sum = temp->bma + temp->bmb;
+		temp->sum = be_positive(temp->bma) + be_positive(temp->bmb);
+		temp=temp->next;
 		if(temp == *headb)
 			break;
 	}
@@ -286,15 +289,74 @@ void best_sum(t_list **headb)
 	temp = *headb;
 	while (1)
 	{
-		if(sum <temp->sum)
-		{
-				
-		}
+		if(sum < temp->sum)
+			{
+				sum = temp->sum;
+				*index = temp->push;
+			}
 		if(temp == *headb)
 			break;
 	}
-	
-	
+	return (sum);
  }
 
+ void final_push(t_list **heada ,t_list **headb)
+ {
+	int best_index;
+	t_list *tempb;
+	
+	best_index = 0;
+	tempb = *headb;
+	best_index = best_sum(headb ,&best_index);
+	while (1)
+	{
+		if(best_index == tempb->sum)
+		break;
+	// puts("B");
+		tempb = tempb ->next;
+	}
+	while(tempb->bma > 0 && tempb->bmb > 0)
+	{
+		rr(heada,headb);
+		(tempb->bma)--;
+		(tempb->bmb)--;
+	}
+	final_push2(heada ,headb ,tempb);
+ }
+ 
+ void final_push2(t_list **heada ,t_list **headb ,t_list *tempb)
+ {
+	while(tempb->bma < 0 && tempb->bmb < 0)
+	{
+		rrr(heada,headb);
+		(tempb->bma)++;
+		(tempb->bmb)++;
+	}
+	while (tempb->bma > 0)
+	{
+		ra(heada);
+		(tempb->bma)--;
+	}
+	while (tempb->bma < 0)
+	{
+		sa(heada);
+		(tempb->bma)++;
+	}
+	while (tempb ->bmb > 0)
+	{
+		rb(headb);
+		(tempb->bmb)--;
+	}
+	final_push3(heada ,headb ,tempb);
+ }
+ 
+void final_push3(t_list **heada ,t_list **headb ,t_list *tempb)
+ {
+	while (tempb ->bmb < 0)
+	{
+		rb(headb);
+		(tempb->bmb)++;
+	}
+	pa(heada,headb);
+}
 
