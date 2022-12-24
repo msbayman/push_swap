@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/23 19:09:10 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/24 15:47:13 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void push_zero_to_b(t_list **heada ,t_list **headb);
 void siri_l_a(t_list **heada, t_list **headb);
 void best_move(t_list **headb, t_list **heada);
 int lst_size(t_list **head);
-int best_sum(t_list **headb ,int *index);
+int best_sum(t_list **headb );
 void indexing(t_list **head );
 void final_push(t_list **heada ,t_list **headb);
 void final_push2(t_list **heada ,t_list **headb ,t_list *tempb);

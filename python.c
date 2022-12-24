@@ -119,43 +119,43 @@
 // the_best_head (&k);
 //   return 0;
 // }
-void    ft_go_to_a(t_list **lsta, t_list **lstb, t_moves *Nmoves)
-{
-    while(Nmoves->besta > 0 && Nmoves->bestb > 0)
-    {
-        ft_rotate_rr(lstb, lsta);
-        Nmoves->besta--;
-        Nmoves->bestb--;
-    }
-    while(Nmoves->besta < 0 && Nmoves->bestb < 0)
-    {
-        ft_reverse_rr(lstb, lsta);
-        Nmoves->besta++;
-        Nmoves->bestb++;
-    }
-    while(Nmoves->besta > 0)
-    {
-        ft_rotate_a(lsta);
-        Nmoves->besta--;
-    }
-    while(Nmoves->besta < 0)
-    {
-        ft_reverse_a(lsta);
-        Nmoves->besta++;
-    }
-    ft_go_to_a_rest(lsta, lstb, &Nmoves);
-}
+// void    ft_go_to_a(t_list **lsta, t_list **lstb, t_moves *Nmoves)
+// {
+//     while(Nmoves->besta > 0 && Nmoves->bestb > 0)
+//     {
+//         ft_rotate_rr(lstb, lsta);
+//         Nmoves->besta--;
+//         Nmoves->bestb--;
+//     }
+//     while(Nmoves->besta < 0 && Nmoves->bestb < 0)
+//     {
+//         ft_reverse_rr(lstb, lsta);
+//         Nmoves->besta++;
+//         Nmoves->bestb++;
+//     }
+//     while(Nmoves->besta > 0)
+//     {
+//         ft_rotate_a(lsta);
+//         Nmoves->besta--;
+//     }
+//     while(Nmoves->besta < 0)
+//     {
+//         ft_reverse_a(lsta);
+//         Nmoves->besta++;
+//     }
+//     ft_go_to_a_rest(lsta, lstb, &Nmoves);
+// }
 
-void    ft_go_to_a_rest(t_list **lsta, t_list **lstb, t_moves *Nmoves)
-{
-    while(Nmoves->bestb > 0)
-    {
-        ft_rotate_b(lstb);
-        Nmoves->bestb--;
-    }
-    while(Nmoves->bestb < 0)
-    {
-        ft_reverse_b(lstb);
-        Nmoves->bestb++;
-    }
-}
+// void    ft_go_to_a_rest(t_list **lsta, t_list **lstb, t_moves *Nmoves)
+// {
+//     while(Nmoves->bestb > 0)
+//     {
+//         ft_rotate_b(lstb);
+//         Nmoves->bestb--;
+//     }
+//     while(Nmoves->bestb < 0)
+//     {
+//         ft_reverse_b(lstb);
+//         Nmoves->bestb++;
+//     }
+// }

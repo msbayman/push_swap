@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/23 20:47:33 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/24 16:16:06 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int main(int ac , char **av)
 	{
 		i = 0;	
 		heada = NULL;
-		printf("==============\n");
 		tab = ft_split(ft_strjoin(ac-1, av + 1, " "),' ');
 
 		if (!check_nul(tab,ac))
@@ -43,44 +42,44 @@ int main(int ac , char **av)
 		while(tab[i])
 			ft_lstadd_back(&heada,ft_lstnew(ft_atoi(tab[i++])));
 
-		i = 0;
-		printf("list is :\n");
-		while(tab[i])
-		{
-			printf("%d\n",heada->data);
-			heada = heada->next;
-			i++;
-		}
+		// i = 0;
+		// printf("list is :\n");
+		// while(tab[i])
+		// {
+		// 	printf("%d\n",heada->data);
+		// 	heada = heada->next;
+		// 	i++;
+		// }
 	}
-	printf("==============\n");
+
 	the_best_head (&heada);
-	printf("==============\n");
+
 	find_max (&heada);
 	zero_one (&heada);
-	printf("==============\n");
+
 	push_zero_to_b(&heada ,&headb);
 	temp = heada;
-	printf("********************A\n");
-	while (1)
-	{
-		printf("%d\n",temp->data);
-		temp = temp->next;
-		if (temp == heada)
-			break;
-	}
+	// printf("********************A\n");
+	// while (1)
+	// {
+	// 	printf("%d\n",temp->data);
+	// 	temp = temp->next;
+	// 	if (temp == heada)
+	// 		break;
+	// }
 	
-	temp = headb;
-	printf("********************B\n");
-	if (headb != NULL)
-	{
-	while (1)
-	{
-		printf("%d\n",temp->data);
-		temp = temp->next;
-		if (temp == headb)
-			break;
-	}
-	}
+	// temp = headb;
+	// printf("********************B\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
+	// 	printf("%d\n",temp->data);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
 	// siri_l_a(&heada, &headb);
 	// best_move(&headb , &heada);
 	temp = headb;
@@ -90,7 +89,7 @@ int main(int ac , char **av)
 	while (1)
 	{
 		
-		printf("%d - %d\n",temp->data,temp->sin);
+		printf("%d\n",temp->data);
 		temp = temp->next;
 		if (temp == headb)
 			break;
@@ -107,18 +106,18 @@ int main(int ac , char **av)
 			break;
 	}
 	temp = headb;
-	printf("********************B\n");
-	if (headb != NULL)
-	{
-	while (1)
-	{
-		printf("%d\n",temp->data);
-		temp = temp->next;
-		if (temp == headb)
-			break;
-	}
-	}
-	printf("********************\n");
+	// printf("********************B\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
+	// 	printf("%d\n",temp->data);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
+	// printf("********************\n");
 		// pb(&heada,&headb);
 		// printf("********************B\n");
 	
@@ -130,21 +129,26 @@ int main(int ac , char **av)
 		// }
 	best_move(&headb, &heada);
 	indexing (&headb);
+	temp = headb;
+	printf("********************B\n");
+	temp = headb;
+	printf("data | bmb | bma | index\n");
+	if (headb != NULL)
+	{
+	while (1)
+	{
+		printf("%d | %d | %d |%d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
+		temp = temp->next;
+		if (temp == headb)
+			break;
+	}
+	}
+	final_push(&heada,&headb);
+	best_move(&headb, &heada);
+	final_push(&heada,&headb);
+	best_move(&headb, &heada);
 	final_push(&heada,&headb);
 	temp = headb;
-	// printf("********************B\n");
-	// printf("data | bmb | bma | index\n");
-	// if (headb != NULL)
-	// {
-	// while (1)
-	// {
-	// 	printf("%d | %d | %d |           %d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
-	// 	temp = temp->next;
-	// 	if (temp == headb)
-	// 		break;
-	// }
-	// }
-
 	printf("********************B\n");
 	if (headb != NULL)
 	{
@@ -171,3 +175,7 @@ int main(int ac , char **av)
 	}
 	
 }
+// 1 7 8 77 -10
+// 7 8 77 -10 1
+// 8 77 -10 1 7 
+
