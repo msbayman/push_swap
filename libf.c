@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:09 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/22 17:56:40 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/26 11:49:41 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,7 +274,7 @@ int lst_size(t_list **head)
 
 	i = 0;
 	temp = *head;
-	while (1)
+	while (*head)
 	{
 		i++;
 		temp = temp->next;

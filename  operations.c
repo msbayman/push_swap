@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:26:49 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/21 17:57:20 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/26 15:19:45 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,6 @@ void pb (t_list **a, t_list **b)
     (*a)->prev->next = (*a)->next;
     (*a)->next->prev =(*a)->prev;
     (*a)=(*a)->next;
-	if((*a)->next == *a)
-	{
-		(*a)->next=NULL;
-		(*a)->prev=NULL;
-	}
     free(del);
 }
 void ra (t_list **lst)

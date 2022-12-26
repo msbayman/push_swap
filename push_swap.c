@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/24 16:16:06 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/26 15:24:21 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,16 @@ int main(int ac , char **av)
 		// 	i++;
 		// }
 	}
-
+	// puts("a");
 	the_best_head (&heada);
-
+	// puts("a1");
 	find_max (&heada);
+	// puts("a2");
 	zero_one (&heada);
-
+	// puts("a3");
 	push_zero_to_b(&heada ,&headb);
-	temp = heada;
+	
+	// temp = heada;
 	// printf("********************A\n");
 	// while (1)
 	// {
@@ -82,30 +84,30 @@ int main(int ac , char **av)
 	// }
 	// siri_l_a(&heada, &headb);
 	// best_move(&headb , &heada);
-	temp = headb;
-	printf("********************B\n");
-	if (headb != NULL)
-	{
-	while (1)
-	{
+	// temp = headb;
+	// printf("********************B\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
 		
-		printf("%d\n",temp->data);
-		temp = temp->next;
-		if (temp == headb)
-			break;
-	}
-	}
+	// 	printf("%d\n",temp->data);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
 	// pa(&heada,&headb);
-	temp = heada;
-	printf("********************A\n");
-	while (1)
-	{
-		printf("%d\n",temp->data);
-		temp = temp->next;
-		if (temp == heada)
-			break;
-	}
-	temp = headb;
+	// temp = heada;
+	// printf("********************A\n");
+	// while (1)
+	// {
+	// 	printf("%d\n",temp->data);
+	// 	temp = temp->next;
+	// 	if (temp == heada)
+	// 		break;
+	// }
+	// temp = headb;
 	// printf("********************B\n");
 	// if (headb != NULL)
 	// {
@@ -128,40 +130,68 @@ int main(int ac , char **av)
 			
 		// }
 	best_move(&headb, &heada);
-	indexing (&headb);
-	temp = headb;
-	printf("********************B\n");
-	temp = headb;
-	printf("data | bmb | bma | index\n");
-	if (headb != NULL)
-	{
-	while (1)
-	{
-		printf("%d | %d | %d |%d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
-		temp = temp->next;
-		if (temp == headb)
-			break;
-	}
-	}
 	final_push(&heada,&headb);
 	best_move(&headb, &heada);
 	final_push(&heada,&headb);
 	best_move(&headb, &heada);
 	final_push(&heada,&headb);
-	temp = headb;
-	printf("********************B\n");
-	if (headb != NULL)
-	{
-	while (1)
-	{
-		printf("%d\n",temp->data);
-		temp = temp->next;
-		if (temp == headb)
-			break;
-	}
-	}
+	best_move(&headb, &heada);
+	final_push(&heada,&headb);
+	// temp = headb;
+	// printf("********************b\n");
+	// printf("data | bmb | bma | sum\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
+	// 	printf("%d | %d | %d |%d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
+		// best_move(&headb, &heada);
+		temp = headb;
+	// printf("********************b\n");
+	// printf("data | bmb | bma | sum\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
+		// printf("%d | %d | %d |%d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
+
+	// final_push(&heada,&headb);
+	// best_move(&headb, &heada);
+	// final_push(&heada,&headb);
+	// indexing (&headb);
+	// temp = headb;
+	// printf("********************B\n");
+	// temp = headb;
+	// printf("data | bmb | bma | index\n");
+	// if (headb != NULL)
+	// {
+	// while (1)
+	// {
+	// 	printf("%d | %d | %d |%d\n",temp->data , temp->bmb ,temp->bma , temp->sum);
+	// 	temp = temp->next;
+	// 	if (temp == headb)
+	// 		break;
+	// }
+	// }
 	
-		temp = heada;
+	// best_move(&headb, &heada);
+	// final_push(&heada,&headb);
+
+	
+
+
+	
+	temp = heada;
 	printf("********************a\n");
 	if (heada != NULL)
 	{
@@ -172,6 +202,18 @@ int main(int ac , char **av)
 		if (temp == heada)
 			break;
 	}
+	}
+	temp = headb;
+	printf("********************B\n");
+	if (headb != NULL)
+	{
+		while (1)
+		{
+			printf("%d\n",temp->data);
+			temp = temp->next;
+			if (temp == headb)
+				break;
+		}
 	}
 	
 }
