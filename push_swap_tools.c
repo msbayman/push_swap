@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/26 15:26:13 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/26 20:43:11 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,45 @@ void the_best_head (t_list **head)
         break;
     }
 }
+
+// void sort_circular_list(t_list **head) {
+//     t_list *temp = *head;
+//     while (1) {
+//         t_list *i = temp;
+//         t_list *j = temp;
+//         while (1) {
+//             if (i->data > j->data) {
+//                 int data = i->data;
+//                 i->data = j->data;
+//                 j->data = data;
+//             }
+//             j = j->next;
+//             if (j == temp) {
+//                 break;
+//             }
+//         }
+//         temp = temp->next;
+//         if (temp == *head) {
+//             break;
+//         }
+//     }
+// }
+
+// void update_sin_field(t_list **head) {
+//     t_list *temp = *head;
+//     while (1) {
+//         temp->sin++;
+//         temp = temp->next;
+//         if (temp == *head) {
+//             break;
+//         }
+//     }
+// }
+
+// void the_best_head(t_list **head) {
+//     sort_circular_list(head);
+//     update_sin_field(head);
+// }
 
 void find_max (t_list **head)
 {
@@ -234,17 +273,17 @@ void find_best_move_for_element(t_list *tempb, t_list *heada, int *i)
 {
 	t_list *tempa;
 	
-	puts("ayman");
 	*i = 0;
 	tempa = heada;
 	while (1)//a
 	{
-		if((tempb->data > tempa->data && tempb->data < tempa->next->data) 
+		if((tempb->data >= tempa->data && tempb->data <= tempa->next->data) 
 			|| ((tempa->data > tempa->next->data) 
 				&& (tempb->data > tempa->data || tempb->data < tempa->next->data)))
-			break ;
+			return ;
 		(*i)++;	
 		tempa = tempa->next;
+	printf("%d , %d ,%d\n",tempb->data,tempb->bma,tempb->bmb);
 		if(tempa == heada)
 			break;
 	}
@@ -255,6 +294,7 @@ void find_best_move_for_element(t_list *tempb, t_list *heada, int *i)
 
 void best_move(t_list **headb, t_list **heada)
 {
+	printf("data,bma,bmb\n");
 	t_list *tempb;
 	int		bmb;
 	int		i;
@@ -278,7 +318,7 @@ void best_move(t_list **headb, t_list **heada)
 		if(tempb == *headb)
 			break;
 	}
-	printf("b size is %d \n",lst_size(headb));
+	
 	
 }
 int be_positive(int k)
@@ -352,12 +392,12 @@ int best_sum(t_list **headb)
 	best_index = best_sum(headb);
 	while (1)
 	{
-		printf("%d | %d | %d |%d\n",tempb->data , tempb->bmb ,tempb->bma , tempb->sum);
+		printf("to push %d\n",tempb->data);
 		if(best_index == tempb->sum)
 		break;
 		tempb = tempb ->next;
 	}
-		printf("best index is ******************%d\n",best_index);
+		// printf("best index is ******************%d\n",best_index);
 	while(tempb->bma > 0 && tempb->bmb > 0)
 	{
 		rr(heada,headb);
@@ -404,5 +444,6 @@ void final_push3(t_list **heada ,t_list **headb ,t_list *tempb)
 		(tempb->bma)++;
 	}
 		pa(heada,headb);
+		// free(headb);
 }
 

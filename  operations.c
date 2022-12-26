@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:26:49 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/26 15:19:45 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/26 20:58:00 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,29 +55,48 @@ void pa (t_list **a, t_list **b)
 {
     int temp ;
     t_list *del;
+	int k ;
+
+	k = lst_size(b);
+	
 
 	write(1,"pa\n",3);
     del = *b; 
     temp = (*b) -> data;
     ft_lstadd_front(a,ft_lstnew(temp));
-	if((*b)->next == *b)
+	(*b)->prev->next = (*b)->next;
+	(*b)->next->prev =(*b)->prev;
+	
+	 (*b)=(*b)->next;
+	
+	free(del);
+	if(k==1)
 	{
 		(*b)=NULL;
 	}
-	else
-	{
-		(*b)->prev->next = (*b)->next;
-		(*b)->next->prev =(*b)->prev;
-		(*b)=(*b)->next;
-	}
-
-	// if((*b)->next == *b)
-	// {
-	// 	(*b)->next=NULL;
-	// 	(*b)->prev=NULL;
-	// }
-    free(del);
+	
+	// printf("----dell data : %d\n",(*b)->data);
 }
+
+// void    ft_push_a(t_push *push, int bol)
+// {
+//     t_list    *tmp;
+
+//     if (push->sizeb == 0)
+//         return ;
+//     tmp = push->headb->next;
+//     tmp->prev = push->headb->prev;
+//     push->headb->prev->next = tmp;
+//     ft_lstadd_front(&push->heada, push->headb);
+//     push->headb = tmp;
+//     push->pheadb = tmp;
+//     push->pheada = push->heada;
+//     if (bol)
+//         write(1, "pa\n", 3);
+//     push->sizea++;
+//     push->sizeb--;
+// }
+
 void pb (t_list **a, t_list **b)
 {
     int temp ;
