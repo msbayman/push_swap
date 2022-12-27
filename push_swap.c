@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:25:50 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/26 20:59:01 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/27 12:06:25 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int main(int ac , char **av)
 	
 	
 	
+	best_move(&headb, &heada);
+	final_push(&heada,&headb);
 	best_move(&headb, &heada);
 	final_push(&heada,&headb);
 	best_move(&headb, &heada);

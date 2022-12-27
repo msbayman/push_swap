@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/26 20:43:11 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/27 12:05:00 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,22 +273,22 @@ void find_best_move_for_element(t_list *tempb, t_list *heada, int *i)
 {
 	t_list *tempa;
 	
-	*i = 0;
+	*i = 1;
 	tempa = heada;
 	while (1)//a
 	{
-		if((tempb->data >= tempa->data && tempb->data <= tempa->next->data) 
+		if((tempb->data > tempa->data && tempb->data < tempa->next->data) 
 			|| ((tempa->data > tempa->next->data) 
 				&& (tempb->data > tempa->data || tempb->data < tempa->next->data)))
-			return ;
+			break ;
 		(*i)++;	
 		tempa = tempa->next;
-	printf("%d , %d ,%d\n",tempb->data,tempb->bma,tempb->bmb);
-		if(tempa == heada)
+		
+		if(tempa->next == heada)
 			break;
 	}
-		if((*i)>lst_size(&heada)/2)
-				tempb->bma = (*i) - lst_size(&heada);
+	if (*i > lst_size(&heada) / 2)
+			*i = *i - lst_size(&heada);
 }
 
 
@@ -298,7 +298,6 @@ void best_move(t_list **headb, t_list **heada)
 	t_list *tempb;
 	int		bmb;
 	int		i;
-	int		j;
 
 	if(lst_size(headb)== 0)
 		return;
@@ -309,11 +308,12 @@ void best_move(t_list **headb, t_list **heada)
 	{
 		find_best_move_for_element(tempb, *heada, &i);
 		tempb->bma = i;
-		if(bmb>lst_size(headb)/2)
+		if(bmb > lst_size(headb)/2)
 				tempb->bmb = bmb - lst_size(headb);
-		else	
+		else
 			tempb->bmb = bmb;
 		bmb++;	
+		printf("%d , %d ,%d\n",tempb->data,tempb->bma,tempb->bmb);
 		tempb = tempb->next;
 		if(tempb == *headb)
 			break;
@@ -444,6 +444,5 @@ void final_push3(t_list **heada ,t_list **headb ,t_list *tempb)
 		(tempb->bma)++;
 	}
 		pa(heada,headb);
-		// free(headb);
 }
 
