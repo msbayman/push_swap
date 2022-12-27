@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 15:30:43 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/24 15:47:13 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/27 18:15:17 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 	int				bma;
 	int				bmb;
 	int				sum;
+	int				pos;
 	
 }	t_list;
 
@@ -62,7 +63,7 @@ long ft_atoilong(char *str);
 int check_nul (char **tab, int ac);
 void the_best_head (t_list **head);
 void find_max (t_list **head);
-void zero_one (t_list **head);
+void zero_one (t_list **fake,t_list **head);
 void push_zero_to_b(t_list **heada ,t_list **headb);
 void siri_l_a(t_list **heada, t_list **headb);
 void best_move(t_list **headb, t_list **heada);
@@ -72,4 +73,6 @@ void indexing(t_list **head );
 void final_push(t_list **heada ,t_list **headb);
 void final_push2(t_list **heada ,t_list **headb ,t_list *tempb);
 void final_push3(t_list **heada ,t_list **headb ,t_list *tempb);
+void qalab_ala_lmin(t_list **heada);
+void indexing_pos(t_list **head);
 #endif

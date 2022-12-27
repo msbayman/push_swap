@@ -6,7 +6,7 @@
 /*   By: amsaoub <amsaoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 12:08:16 by amsaoub           #+#    #+#             */
-/*   Updated: 2022/12/27 12:05:00 by amsaoub          ###   ########.fr       */
+/*   Updated: 2022/12/27 18:24:44 by amsaoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,25 +89,46 @@ void the_best_head (t_list **head)
 void find_max (t_list **head)
 {
 	t_list *temp;
-	t_list *h;
+	t_list *oreginal_head;
+	t_list *fake;
+	int k;
 	int max;
 	temp = *head;
+	oreginal_head = *head;
+	fake = *head;
 	max = -1;
+	k = 0;
+	indexing_pos(head);
 	 while (1)
     {
 		if (max < temp->sin)
 		{
+		// printf(" %d , sin = %d\n",(temp)->data,(temp)->sin);
 			max = temp->sin;
-			h = temp;
+			fake = temp;
+			k = temp->pos;
 		}
 		temp = temp->next;
         if(temp == *head)
         break ;
     }
-		*head = h;
+	if(k > lst_size(head)/2)
+		k = k - lst_size(head);
+	
+	while (k < 0)
+	{
+		rra(head);
+		k++ ;
+	}
+	while (k > 0)
+	{
+		ra(head);
+		k-- ;
+	}
+	zero_one (&oreginal_head , &fake);
 }
 
-void zero_one (t_list **head)
+void zero_one ( t_list **oreginal_head,t_list **head)
 {
 	t_list	*i;
 	t_list	*temp;
@@ -122,35 +143,57 @@ void zero_one (t_list **head)
             if (i->data < j->data)
               {
 			   j->push = 1;
-			   i= j;
+			   i = j;
 			  } 
             j=j->next;
             if(j == *head)
               break;
         }
-	 while(1)
-		{
-			temp = temp ->next;
-			if(temp == *head)
-			break;
-		}
+		*head = *oreginal_head;
 }
 
 void push_zero_to_b(t_list **heada ,t_list **headb)
 {
-	t_list *temp;
+	// t_list *temp;
 	
+	
+	// temp = (*heada);
+	// while (1)
+	// {
+	// 	if (temp->push == 0)
+	// 		pb(&temp,headb);
+	// 	else
+	// 		ra(&temp);
+	// 	if (temp == *heada)
+	// 		break;
+	// }
+t_list *temp;
+	int k;
+	
+	k = 0;
 	temp = (*heada);
 	while (1)
 	{
 		if (temp->push == 0)
-			pb(&temp,headb);
-		else
-			ra(&temp);
+			k++;
+		temp =temp ->next;
 		if (temp == *heada)
 			break;
 	}
+	temp = *heada;
+	while (k)
+	{
+		if (temp->push == 0)
+		{
+			pb(&temp,headb);
+			k--;
+			// printf("push %d\n",temp->data);
+		}
+		else
+			ra(&temp);
+	}
 }
+
 // void push_zero_to_b(t_list **heada ,t_list **headb)
 // {
 // 	t_list *temp;
@@ -192,6 +235,26 @@ void indexing(t_list **head)
 			temp->push = i - lst_size(head);
 		else
 			temp->push = i;
+		temp=temp->next;
+		i++;
+		if (temp == *head)
+			break;
+	}
+	
+}
+void indexing_pos(t_list **head)
+{
+	t_list *temp;
+	int i;
+
+	i=0;
+	temp = *head;
+	while (1)
+	{
+		if(i>lst_size(head)/2)
+			temp->pos = i - lst_size(head);
+		else
+			temp->pos = i;
 		temp=temp->next;
 		i++;
 		if (temp == *head)
@@ -294,7 +357,7 @@ void find_best_move_for_element(t_list *tempb, t_list *heada, int *i)
 
 void best_move(t_list **headb, t_list **heada)
 {
-	printf("data,bma,bmb\n");
+	// printf("data,bma,bmb\n");
 	t_list *tempb;
 	int		bmb;
 	int		i;
@@ -313,7 +376,7 @@ void best_move(t_list **headb, t_list **heada)
 		else
 			tempb->bmb = bmb;
 		bmb++;	
-		printf("%d , %d ,%d\n",tempb->data,tempb->bma,tempb->bmb);
+		// printf("%d , %d ,%d\n",tempb->data,tempb->bma,tempb->bmb);
 		tempb = tempb->next;
 		if(tempb == *headb)
 			break;
@@ -392,7 +455,7 @@ int best_sum(t_list **headb)
 	best_index = best_sum(headb);
 	while (1)
 	{
-		printf("to push %d\n",tempb->data);
+		// printf("to push %d\n",tempb->data);
 		if(best_index == tempb->sum)
 		break;
 		tempb = tempb ->next;
@@ -446,3 +509,52 @@ void final_push3(t_list **heada ,t_list **headb ,t_list *tempb)
 		pa(heada,headb);
 }
 
+// void min_howa_l_head(int index ,t_list *heada)
+// {
+// 	while (index < 0)
+// 	{
+// 		rra(&heada);
+// 		index++ ;
+// 	}
+// 	while (index > 0)
+// 	{
+// 		ra(&heada);
+// 		index-- ;
+// 	}
+// 	printf("------------>%d-----\n",index);
+
+// }
+void qalab_ala_lmin(t_list **heada)
+{
+	
+	t_list *temp;
+	int index;
+	int data;
+
+	indexing(heada);
+	data = (*heada) ->data;
+	index = (*heada) ->push;
+	temp = *heada;
+	while (1)
+	{
+		if(data > temp->data)
+		{
+			data = temp->data;
+			index = temp->push;
+		}
+		temp = temp->next;
+		if(temp == *heada)
+			break;
+	}
+	while (index < 0)
+	{
+		rra(heada);
+		index++ ;
+	}
+	while (index > 0)
+	{
+		ra(heada);
+		index-- ;
+	}
+	
+}
